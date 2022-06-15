@@ -46,7 +46,7 @@ map_to_exio <- function(vec_coicop, country='AT') {
     stop(paste("Country", country, "doesn't belong to EXIOBASE."))
     
   }
-  mat_exio = diag(vec_exio) %*% normalize_FD(pull(Y_hh, country_index)) # 200x49
+  mat_exio = diag(vec_exio) %*% normalize_FD(dplyr::pull(Y_hh, country_index)) # 200x49
   
   dom_id = seq((country_index-1)*200+1, country_index*200)
   imp_id = setdiff(1:9800, dom_id)

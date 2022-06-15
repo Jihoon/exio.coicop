@@ -64,6 +64,7 @@ load_exio_coicop_mapping()
 load_EXIOBASE3()
 
 FE_carriers <- label.S[idx.FE,]
+M <- as.matrix(M)
 
 # Add entries to the package
 usethis::use_data(M, internal = FALSE, overwrite = TRUE)
