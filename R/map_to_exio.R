@@ -21,7 +21,11 @@ normalize_FD <- function(vec_exio_fd) {
 #' @return A list with 'dom' and 'imp' entries, which are respectively for domestic and imported consumption vectors in EXIO product classification. Each vector has a length of 9800 (200 products x 49 countries).
 #' @export
 #'
-#' @examples
+#' @examples final_cons_coicop = rep(1, 164)  # A dummy consumption vector for 164 categories
+#' @examples fd = map_to_exio(final_cons_coicop, 'IN')  # For India
+#' @examples footprint_dom = M %*% fd_query$dom
+#' @examples footprint_imp = M %*% fd_query$imp
+
 map_to_exio <- function(vec_coicop, country='AT') {
   # Convert 164 COICOP vector to 200 EXIO vector
   # vec_coicop: COICOP consumption profile 164x1

@@ -3,7 +3,7 @@
 \docType{data}
 \name{M}
 \alias{M}
-\title{Final Energy Intensity Matrix for EXIO FD vector}
+\title{Final Energy Intensity Matrix for EXIO FD Vector}
 \format{
 A sparse matrix of the size 222x9800. Each row is for a specific carrier for a specific accounting category (NTRA, NENE, etc.).
 }
@@ -15,6 +15,10 @@ M
 }
 \description{
 A dataset containing total final energy intensities \code{M=S⋅L}
-diamonds.
+}
+\examples{
+final_cons_coicop = rep(1, 164)  # 164 categories
+fd_query = map_to_exio(final_cons_coicop, 'IN')
+footprint_dom = M \%*\% fd_query$dom
 }
 \keyword{datasets}

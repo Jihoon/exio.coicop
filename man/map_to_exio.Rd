@@ -17,3 +17,9 @@ A list with 'dom' and 'imp' entries, which are respectively for domestic and imp
 \description{
 Convert COICOP consumption vector to EXIOBASE final demand vectors
 }
+\examples{
+final_cons_coicop = rep(1, 164)  # A dummy consumption vector for 164 categories
+fd = map_to_exio(final_cons_coicop, 'IN')  # For India
+footprint_dom = M \%*\% fd_query$dom
+footprint_imp = M \%*\% fd_query$imp
+}
