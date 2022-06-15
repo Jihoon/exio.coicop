@@ -1,4 +1,12 @@
-## code to prepare `DATASET` dataset goes here
+# Country labels for EXIOBASE3
+exio_ctys <- c("AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", 
+               "FR", "GR", 
+               "HR", # Added new at EXIO3
+               "HU", "IE", "IT", "LT", "LU", "LV", "MT", "NL", 
+               "PL", "PT", "RO", "SE", "SI", "SK", "GB", "US", "JP", "CN", 
+               "CA", "KR", "BR", "IN", "MX", "RU", "AU", "CH", "TR", "TW", 
+               "NO", "ID", "ZA", "WA", "WL", "WE", "WF", "WM")
+
 
 load_exio_coicop_mapping <- function() {
   # Read in EXIO-COICOP mapping
@@ -18,6 +26,7 @@ load_exio_coicop_mapping <- function() {
   map_cty$ZA <<- readxl::read_xlsx(paste0(mapping_path, '/ZAF.bridge.EXIO-COICOP.xlsx'), range = readxl::cell_cols(c("B", NA)))
   map_cty$BR <<- readxl::read_xlsx(paste0(mapping_path, '/BRA.bridge.EXIO-COICOP.xlsx'), range = readxl::cell_cols(c("B", NA)))
 }
+
 
 load_EXIOBASE3 <- function() {
   L=vroom::vroom(here::here("data-raw", "exio", "L_2015.csv"), col_names = FALSE)
@@ -49,9 +58,14 @@ load_EXIOBASE3 <- function() {
   Y_hh <<- Y[, seq(1, 343, 7)]
 }
 
+
+# Generate/Load base data
 load_exio_coicop_mapping()
 load_EXIOBASE3()
 
+
+# Add entries to the package
+usethis::use_data(exio_ctys, internal = TRUE, overwrite = TRUE)
 usethis::use_data(map_def, internal = TRUE, overwrite = TRUE)
 usethis::use_data(map_cty, internal = TRUE, overwrite = TRUE)
 usethis::use_data(M, internal = FALSE, overwrite = TRUE)
