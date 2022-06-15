@@ -66,9 +66,6 @@ load_EXIOBASE3()
 FE_carriers <- label.S[idx.FE,]
 
 # Add entries to the package
-usethis::use_data(exio_ctys, internal = TRUE, overwrite = TRUE)
-usethis::use_data(map_def, internal = TRUE, overwrite = TRUE)
-usethis::use_data(map_cty, internal = TRUE, overwrite = TRUE)
 usethis::use_data(M, internal = FALSE, overwrite = TRUE)
 usethis::use_data(FE_carriers, internal = FALSE, overwrite = TRUE)
-usethis::use_data(Y_hh, internal = TRUE, overwrite = TRUE)
+usethis::use_data(exio_ctys, map_def, map_cty, Y_hh, internal = TRUE, overwrite = TRUE)

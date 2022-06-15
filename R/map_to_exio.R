@@ -23,8 +23,8 @@ normalize_FD <- function(vec_exio_fd) {
 #'
 #' @examples final_cons_coicop = rep(1, 164)  # A dummy consumption vector for 164 categories
 #' @examples fd = map_to_exio(final_cons_coicop, 'IN')  # For India
-#' @examples footprint_dom = M %*% fd_query$dom
-#' @examples footprint_imp = M %*% fd_query$imp
+#' @examples footprint_dom = M %*% fd$dom
+#' @examples footprint_imp = M %*% fd$imp
 
 map_to_exio <- function(vec_coicop, country='AT') {
   # Convert 164 COICOP vector to 200 EXIO vector

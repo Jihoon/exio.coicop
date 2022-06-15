@@ -18,7 +18,7 @@ A dataset containing total final energy intensities \code{M=S⋅L}
 }
 \examples{
 final_cons_coicop = rep(1, 164)  # 164 categories
-fd_query = map_to_exio(final_cons_coicop, 'IN')
-footprint_dom = M \%*\% fd_query$dom
+fd = map_to_exio(final_cons_coicop, 'IN')
+footprint_dom = M \%*\% fd$dom
 }
 \keyword{datasets}
